@@ -1,0 +1,30 @@
+<div class="scoreboard_container">
+  <div class="scoreboard_container__info">
+    {{timerValues.minutes | number: '2.0'}} : {{timerValues.seconds | number: '2.0'}}
+  </div>
+
+  <div class="scoreboard_container__btn_gr">
+    <button *ngIf="!timerValues.running else stopButton"
+            class="scoreboard_container__btn"
+            (click)="startButtonClickHandler()">
+      {{BtnNameConstants.START}}
+    </button>
+
+    <button class="scoreboard_container__btn"
+            (click)="waitButtonClickHandler()">
+      {{BtnNameConstants.WAIT}}
+    </button>
+
+    <button class="scoreboard_container__btn"
+            (click)="resetButtonClickHandler()">
+      {{BtnNameConstants.RESET}}
+    </button>
+  </div>
+</div>
+
+<ng-template #stopButton>
+  <button class="scoreboard_container__btn"
+          (click)="stopButtonClickHandler()">
+    {{BtnNameConstants.STOP}}
+  </button>
+</ng-template>
